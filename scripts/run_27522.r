@@ -1,4 +1,4 @@
-devtools::load_all('~/Numbat')
+library(numbat)
 library(dplyr)
 library(data.table)
 library(glue)
@@ -6,18 +6,16 @@ library(stringr)
 library(Matrix)
 library(magrittr)
 library(copykat)
-library(IRdisplay)
 library(parallel)
 
-annot = fread('~/external/WASHU/sample_barcode_cell_type_annotation.txt')
 
-cell_annot = annot %>% 
+cell_annot = fread('~/paper_data/cell_annotations/cell_annot_WASHU.tsv') %>% 
     mutate(sample_id = str_replace(sample_id, '-', '_')) %>%
     mutate(sample_id = ifelse(sample_id == '57075_Pre_transplant', '57075_Primary', sample_id)) %>%
     mutate(cell = paste0(sample_id, '_', barcode)) %>% 
     split(.$sample_id)
 
-con = readRDS('~/external/WASHU/con.rds')
+con = readRDS('~/paper_data/conos_objects/conos_WASHU.rds')
 
 patient = '27522'
 samples = c('27522_Primary', '27522_Remission', '27522_Relapse_1', '27522_Relapse_2')
@@ -30,7 +28,7 @@ for (sample in samples) {
     cells = intersect(cell_annot[[sample]]$cell, colnames(count_mat[[sample]]))
     cell_annot[[sample]] = cell_annot[[sample]] %>% filter(cell %in% cells)
     count_mat[[sample]] = count_mat[[sample]][,cells]
-    df[[sample]] = fread(glue('~/external/WASHU/{sample}_allele_counts.tsv'), sep = '\t') %>%
+    df[[sample]] = fread(glue('~/paper_data/processed/{sample}_allele_counts.tsv.gz'), sep = '\t') %>%
         filter(cell %in% cells)
 }
 
@@ -64,10 +62,9 @@ out = numbat_subclone(
     gtf_transcript,
     genetic_map_hg38,
     min_cells = 50,
-    t = 1e-6,
-    max_entropy = 0.4,
+    t = 1e-5,
     ncores = 45,
-    eps = 0,
-    out_dir = glue('~/results/WASHU/{patient}')
+    max_entropy = 0.5,
+    out_dir = glue('~/paper_data/numbat_out/{patient}')
 )
 

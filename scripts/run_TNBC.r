@@ -8,14 +8,12 @@ library(parallel)
 library(vcfR)
 library(pagoda2)
 library(conos)
-library(IRdisplay)
-devtools::load_all('~/Numbat')
-# library(numbat)
+library(numbat)
 # home_dir = '/d0-bayes/home/tenggao'
 home_dir = '/home/tenggao'
 
 # expression data
-con = readRDS(glue('{home_dir}/external/MDA/conos_TNBC.rds'))
+con = readRDS(glue('{home_dir}/paper_data/conos_objects/conos_TNBC.rds'))
 
 samples = paste0('TNBC', 1:5)
 
@@ -24,7 +22,7 @@ df = c()
 
 for (sample in samples) {
     count_mat[[sample]] = as.matrix(t(con$samples[[sample]]$misc$rawCounts))
-    df[[sample]] = fread(glue('{home_dir}/external/MDA/{sample}_allele_counts.tsv'), sep = '\t')
+    df[[sample]] = fread(glue('{home_dir}/paper_data/processed/{sample}_allele_counts.tsv.gz'), sep = '\t')
 }
 
 ## Run Numbat
@@ -50,11 +48,10 @@ for (sample in samples) {
                 ncores = 40,
                 init_k = 3,
                 t = 1e-3,
-                min_LLR = 30,
                 use_loh = use_loh,
                 diploid_chroms = diploid_chroms,
                 max_iter = 2,
-                out_dir = glue('{home_dir}/results/MDA/{sample}_new')
+                out_dir = glue('{home_dir}/paper_data/numbat_out/{sample}')
             )
         },
         error = function(e) { 

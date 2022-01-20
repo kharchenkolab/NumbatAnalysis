@@ -14,7 +14,7 @@ library(numbat)
 home_dir = '/home/tenggao'
 
 # expression data
-con = readRDS(glue('{home_dir}/external/MDA/conos_BC.rds'))
+con = readRDS(glue('{home_dir}/paper_data/conos_objects/conos_BC.rds'))
 
 samples = c('DCIS1')
 
@@ -23,7 +23,7 @@ df = c()
 
 for (sample in samples) {
     count_mat[[sample]] = as.matrix(t(con$samples[[sample]]$misc$rawCounts))
-    df[[sample]] = fread(glue('{home_dir}/external/MDA/{sample}_allele_counts.tsv.gz'), sep = '\t')
+    df[[sample]] = fread(glue('{home_dir}/paper_data/processed/{sample}_allele_counts.tsv.gz'), sep = '\t')
 }
 
 ## Run Numbat
