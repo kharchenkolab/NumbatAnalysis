@@ -38,7 +38,8 @@ for (sample in samples) {
                 genetic_map_hg38,
                 min_cells = 50,
                 t = 1e-3,
-                ncores = 50,
+                # t = 1e-5,
+                ncores = 40,
                 init_k = 3,
                 max_entropy = 0.6,
                 out_dir = glue('{home_dir}/paper_data/numbat_out/{sample}')

@@ -15,7 +15,7 @@ home_dir = '/home/tenggao'
 # expression data
 con = readRDS(glue('{home_dir}/paper_data/conos_objects/conos_TNBC.rds'))
 
-samples = paste0('TNBC', 1:5)
+samples = paste0('TNBC', 1)
 
 count_mat = c()
 df = c()
@@ -45,9 +45,10 @@ for (sample in samples) {
                 gtf_transcript,
                 genetic_map_hg38,
                 min_cells = 50,
-                ncores = 40,
+                ncores = 30,
                 init_k = 3,
                 t = 1e-3,
+                multi_allelic = T,
                 use_loh = use_loh,
                 diploid_chroms = diploid_chroms,
                 max_iter = 2,
