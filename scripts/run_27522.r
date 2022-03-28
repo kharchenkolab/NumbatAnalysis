@@ -1,4 +1,4 @@
-library(numbat)
+# library(numbat)
 library(dplyr)
 library(data.table)
 library(glue)
@@ -8,6 +8,9 @@ library(magrittr)
 library(copykat)
 library(parallel)
 
+# home_dir = '/d0-bayes/home/tenggao'
+home_dir = '/home/tenggao'
+devtools::load_all(glue('{home_dir}/numbat'))
 
 cell_annot = fread('~/paper_data/cell_annotations/cell_annot_WASHU.tsv') %>% 
     mutate(sample_id = str_replace(sample_id, '-', '_')) %>%
@@ -35,16 +38,14 @@ for (sample in samples) {
 count_mat_combined = count_mat[samples] %>% Reduce('cbind', .) %>% as.matrix
 depths = count_mat_combined %>% colSums
 
-ref_types = c('B', 'CD14+Mono')
-
-ref_patient = make_psbulk(
+ref_patient = aggregate_counts(
     count_mat = count_mat_combined,
-    cell_annot = cell_annot[samples] %>% bind_rows %>% filter(cell_type %in% ref_types),
+    cell_annot = cell_annot[samples] %>% bind_rows %>% filter(cell_type == 'B'),
     verbose = T
 )$exp_mat %>%
 as.matrix
 
-ref_patient = ref_patient[,'B',drop=T]
+ref_patient = ref_patient[,'B',drop=FALSE]
 
 tumor_cells = cell_annot[samples] %>% 
     bind_rows() %>% 
@@ -55,16 +56,17 @@ tumor_cells = cell_annot[samples] %>%
 
 tumor_cells = intersect(tumor_cells, colnames(count_mat_combined))
 
-out = numbat_subclone(
+out = run_numbat(
     count_mat_combined %>% extract(,tumor_cells),
     ref_patient,
     df[samples] %>% bind_rows %>% filter(cell %in% tumor_cells),
-    gtf_transcript,
+    gtf_hg38,
     genetic_map_hg38,
     min_cells = 50,
     t = 1e-5,
     ncores = 45,
+    ncores_nni = 20,
     max_entropy = 0.5,
-    out_dir = glue('~/paper_data/numbat_out/{patient}')
+    min_LLR = 40,
+    out_dir = glue('~/paper_data/numbat_out/{patient}_new')
 )
-

@@ -8,7 +8,8 @@ library(parallel)
 library(vcfR)
 library(pagoda2)
 library(conos)
-library(numbat)
+# library(Numbat)
+devtools::load_all('~/numbat')
 # home_dir = '/d0-bayes/home/tenggao'
 home_dir = '/home/tenggao'
 
@@ -21,7 +22,7 @@ count_mat = c()
 df = c()
 
 for (sample in samples) {
-    count_mat[[sample]] = as.matrix(t(con$samples[[sample]]$misc$rawCounts))
+    count_mat[[sample]] = t(con$samples[[sample]]$misc$rawCounts)
     df[[sample]] = fread(glue('{home_dir}/paper_data/processed/{sample}_allele_counts.tsv.gz'), sep = '\t')
 }
 
@@ -38,21 +39,22 @@ for (sample in samples) {
     
     tryCatch(
         expr = {
-            out = numbat_subclone(
+            out = run_numbat(
                 count_mat[[sample]],
                 ref_hca,
                 df[[sample]],
-                gtf_transcript,
+                gtf_hg38,
                 genetic_map_hg38,
                 min_cells = 50,
                 ncores = 30,
+                ncores_nni = 5,
                 init_k = 3,
                 t = 1e-3,
                 multi_allelic = T,
                 use_loh = use_loh,
                 diploid_chroms = diploid_chroms,
                 max_iter = 2,
-                out_dir = glue('{home_dir}/paper_data/numbat_out/{sample}')
+                out_dir = glue('{home_dir}/paper_data/numbat_out/{sample}_demo_new')
             )
         },
         error = function(e) { 

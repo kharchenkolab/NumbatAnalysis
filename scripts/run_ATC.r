@@ -1,4 +1,4 @@
-library(numbat)
+# library(numbat)
 library(dplyr)
 library(Matrix)
 library(data.table)
@@ -9,13 +9,14 @@ library(parallel)
 library(vcfR)
 library(pagoda2)
 library(conos)
+devtools::load_all('~/numbat')
 # home_dir = '/d0-bayes/home/tenggao'
 home_dir = '/home/tenggao'
 
 # expression data
 con = readRDS(glue('{home_dir}/paper_data/conos_objects/conos_ATC.rds'))
 
-samples = paste0('ATC', 2:5)
+samples = paste0('ATC', 1)
 
 count_mat = c()
 df = c()
@@ -30,19 +31,20 @@ for (sample in samples) {
     
     tryCatch(
         expr = {
-            out = numbat_subclone(
+            out = run_numbat(
                 count_mat[[sample]],
                 ref_hca,
                 df[[sample]],
-                gtf_transcript,
+                gtf_hg38,
                 genetic_map_hg38,
                 min_cells = 50,
                 t = 1e-3,
-                # t = 1e-5,
-                ncores = 40,
+                ncores = 30,
+                ncores_nni = 20,
                 init_k = 3,
                 max_entropy = 0.6,
-                out_dir = glue('{home_dir}/paper_data/numbat_out/{sample}')
+                multi_allelic = TRUE,
+                out_dir = glue('{home_dir}/paper_data/numbat_out/{sample}_demo')
             )
         },
         error = function(e) { 
