@@ -1,0 +1,926 @@
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+
+Attaching package: ‘data.table’
+
+The following objects are masked from ‘package:dplyr’:
+
+    between, first, last
+
+ℹ Loading numbat
+Registered S3 method overwritten by 'vegan':
+  method     from      
+  rev.hclust dendextend
+Warning message:
+replacing previous import ‘Matrix::expand’ by ‘ggtree::expand’ when loading ‘numbat’ 
+Running under parameters:
+t = 1e-05
+alpha = 1e-04
+gamma = 20
+min_cells = 50
+init_k = 3
+max_cost = 712.2
+max_iter = 2
+max_nni = 100
+min_depth = 0
+use_loh = auto
+multi_allelic = FALSE
+min_LLR = 40
+min_overlap = 0.45
+max_entropy = 0.5
+skip_nj = FALSE
+diploid_chroms = 
+ncores = 40
+ncores_nni = 20
+common_diploid = TRUE
+tau = 0.3
+check_converge = FALSE
+Input metrics:
+2374 cells
+Mem used: 11.6Gb
+Approximating initial clusters using smoothed expression ..
+Mem used: 11.6Gb
+number of genes left: 9459
+running hclust...
+Iteration 1
+Mem used: 11.8Gb
+number of genes left: 8526
+number of genes left: 8781
+number of genes left: 9411
+number of genes left: 9305
+number of genes left: 9101
+Running HMMs on 5 cell groups..
+Retesting CNVs..
+Finishing..
+Retesting CNVs..
+Finishing..
+Retesting CNVs..
+Retesting CNVs..
+Retesting CNVs..
+Finishing..
+Finishing..
+Finishing..
+number of genes left: 8526
+number of genes left: 8781
+number of genes left: 9101
+Running HMMs on 3 cell groups..
+Finishing..
+Finishing..
+Finishing..
+Making plots..
+Evaluating CNV per cell ..
+Mem used: 12.3Gb
+All cells succeeded
+Building phylogeny ..
+Mem used: 12.7Gb
+Using 7 CNVs to construct phylogeny
+Using NJ tree as seed..
+Mem used: 12.7Gb
+Iter 2 -3197.39092255947 15s
+Iter 3 -3184.81788557944 15s
+Iter 4 -3169.89543871815 15s
+Iter 5 -3163.63132542558 14s
+Iter 6 -3161.83881223135 15s
+Iter 7 -3158.48467656133 16s
+Iter 8 -3157.55733417108 16s
+Iter 9 -3157.28767640002 17s
+Iter 10 -3157.1039854417 17s
+Iter 11 -3156.92152893707 18s
+Iter 12 -3156.92152893707 18s
+Found 2226 normal cells..
+Iteration 2
+Mem used: 12.7Gb
+number of genes left: 8773
+number of genes left: 9411
+Running HMMs on 2 cell groups..
+Retesting CNVs..
+Finishing..
+Retesting CNVs..
+Finishing..
+number of genes left: 8773
+number of genes left: 9307
+Running HMMs on 2 cell groups..
+Finishing..
+Finishing..
+Making plots..
+Evaluating CNV per cell ..
+Mem used: 12.6Gb
+All cells succeeded
+Building phylogeny ..
+Mem used: 12.6Gb
+Using 6 CNVs to construct phylogeny
+Using UPGMA tree as seed..
+Mem used: 12.6Gb
+Iter 2 -2341.92289642706 18s
+Iter 3 -2234.30634707667 18s
+Iter 4 -2215.56303704617 18s
+Iter 5 -2214.352888028 18s
+Iter 6 -2213.30723767976 18s
+Iter 7 -2212.67995757908 18s
+Iter 8 -2212.67995757908 18s
+Found 2227 normal cells..
+All done!
+Running under parameters:
+t = 1e-05
+alpha = 1e-04
+gamma = 20
+min_cells = 50
+init_k = 3
+max_cost = 1164
+max_iter = 2
+max_nni = 100
+min_depth = 0
+use_loh = auto
+multi_allelic = FALSE
+min_LLR = 40
+min_overlap = 0.45
+max_entropy = 0.5
+skip_nj = FALSE
+diploid_chroms = 
+ncores = 40
+ncores_nni = 20
+common_diploid = TRUE
+tau = 0.3
+check_converge = FALSE
+Input metrics:
+3880 cells
+Mem used: 11.7Gb
+Approximating initial clusters using smoothed expression ..
+Mem used: 11.7Gb
+number of genes left: 9566
+running hclust...
+Iteration 1
+Mem used: 12Gb
+number of genes left: 9504
+number of genes left: 9383
+number of genes left: 9352
+number of genes left: 8873
+number of genes left: 8876
+Running HMMs on 5 cell groups..
+Retesting CNVs..
+Retesting CNVs..
+Retesting CNVs..
+Finishing..
+Finishing..
+Retesting CNVs..
+Retesting CNVs..
+Finishing..
+Finishing..
+Finishing..
+number of genes left: 9352
+number of genes left: 8873
+number of genes left: 8876
+Running HMMs on 3 cell groups..
+Finishing..
+Finishing..
+Finishing..
+Making plots..
+Evaluating CNV per cell ..
+Mem used: 12.8Gb
+All cells succeeded
+Building phylogeny ..
+Mem used: 13.4Gb
+Using 6 CNVs to construct phylogeny
+Using UPGMA tree as seed..
+Mem used: 13.5Gb
+Iter 2 -3749.54093498971 23s
+Iter 3 -3458.79179918088 23s
+Iter 4 -3442.70442129098 23s
+Iter 5 -3402.83766726986 22s
+Iter 6 -3387.68392574807 23s
+Iter 7 -3371.70627615944 25s
+Iter 8 -3364.5611163327 26s
+Iter 9 -3364.5611163327 27s
+Found 3488 normal cells..
+Iteration 2
+Mem used: 13.5Gb
+number of genes left: 9504
+number of genes left: 8850
+Running HMMs on 2 cell groups..
+Retesting CNVs..
+Retesting CNVs..
+Finishing..
+Finishing..
+number of genes left: 8850
+number of genes left: 9383
+Running HMMs on 2 cell groups..
+Finishing..
+Finishing..
+Making plots..
+Evaluating CNV per cell ..
+Mem used: 13.2Gb
+All cells succeeded
+Building phylogeny ..
+Mem used: 13.3Gb
+Using 6 CNVs to construct phylogeny
+Using UPGMA tree as seed..
+Mem used: 13.3Gb
+Iter 2 -3486.64616541941 23s
+Iter 3 -3458.08503979942 22s
+Iter 4 -3451.03034217886 22s
+Iter 5 -3449.96984322886 22s
+Iter 6 -3449.96984322886 23s
+Found 3491 normal cells..
+All done!
+Running under parameters:
+t = 1e-05
+alpha = 1e-04
+gamma = 20
+min_cells = 50
+init_k = 3
+max_cost = 512.7
+max_iter = 2
+max_nni = 100
+min_depth = 0
+use_loh = auto
+multi_allelic = FALSE
+min_LLR = 40
+min_overlap = 0.45
+max_entropy = 0.5
+skip_nj = FALSE
+diploid_chroms = 
+ncores = 40
+ncores_nni = 10
+common_diploid = TRUE
+tau = 0.3
+check_converge = FALSE
+Input metrics:
+1709 cells
+Mem used: 11.7Gb
+Approximating initial clusters using smoothed expression ..
+Mem used: 11.7Gb
+number of genes left: 9213
+running hclust...
+Iteration 1
+Mem used: 11.8Gb
+number of genes left: 9070
+number of genes left: 9138
+number of genes left: 6208
+number of genes left: 9113
+number of genes left: 8152
+Running HMMs on 5 cell groups..
+Retesting CNVs..
+Finishing..
+Retesting CNVs..
+Retesting CNVs..
+Retesting CNVs..
+Retesting CNVs..
+Finishing..
+Finishing..
+Finishing..
+Finishing..
+number of genes left: 6208
+number of genes left: 9113
+number of genes left: 8152
+Running HMMs on 3 cell groups..
+Finishing..
+Finishing..
+Finishing..
+Making plots..
+Evaluating CNV per cell ..
+Mem used: 12.3Gb
+All cells succeeded
+Building phylogeny ..
+Mem used: 12.6Gb
+Using 9 CNVs to construct phylogeny
+Using UPGMA tree as seed..
+Mem used: 12.6Gb
+Iter 2 -3220.24571673186 10s
+Iter 3 -3160.45545971953 10s
+Iter 4 -3121.16703996938 10s
+Iter 5 -3073.67768080904 10s
+Iter 6 -3044.93794962887 10s
+Iter 7 -3028.99891418781 10s
+Iter 8 -3018.02308029769 10s
+Iter 9 -3004.45719942307 10s
+Iter 10 -2995.37121394345 10s
+Iter 11 -2969.52260390656 10s
+Iter 12 -2961.89242399245 11s
+Iter 13 -2956.62264722491 12s
+Iter 14 -2940.762869362 13s
+Iter 15 -2935.8042266673 12s
+Iter 16 -2932.4071710827 12s
+Iter 17 -2932.4071710827 12s
+Found 1164 normal cells..
+Iteration 2
+Mem used: 12.6Gb
+number of genes left: 9070
+number of genes left: 7925
+number of genes left: 7916
+Running HMMs on 3 cell groups..
+Retesting CNVs..
+Retesting CNVs..
+Retesting CNVs..
+Finishing..
+Finishing..
+Finishing..
+number of genes left: 8086
+number of genes left: 9129
+number of genes left: 7916
+Running HMMs on 3 cell groups..
+Finishing..
+Finishing..
+Finishing..
+Making plots..
+Evaluating CNV per cell ..
+Mem used: 12.6Gb
+All cells succeeded
+Building phylogeny ..
+Mem used: 12.6Gb
+Using 9 CNVs to construct phylogeny
+Using UPGMA tree as seed..
+Mem used: 12.6Gb
+Iter 2 -3190.43560860592 11s
+Iter 3 -3172.93685876819 11s
+Iter 4 -3156.84758848872 10s
+Iter 5 -3148.57366007747 11s
+Iter 6 -3118.0639224402 10s
+Iter 7 -3108.97660714042 10s
+Iter 8 -3103.68423913806 10s
+Iter 9 -3099.66283043803 10s
+Iter 10 -3096.47003625936 11s
+Iter 11 -3087.52079101704 11s
+Iter 12 -3072.67582931741 12s
+Iter 13 -3069.50622244366 11s
+Iter 14 -3066.3894820549 11s
+Iter 15 -3065.25993311257 11s
+Iter 16 -3045.40917137149 11s
+Iter 17 -3045.40917137149 12s
+Found 1164 normal cells..
+All done!
+Running under parameters:
+t = 1e-05
+alpha = 1e-04
+gamma = 20
+min_cells = 50
+init_k = 3
+max_cost = 439.5
+max_iter = 2
+max_nni = 100
+min_depth = 0
+use_loh = auto
+multi_allelic = FALSE
+min_LLR = 40
+min_overlap = 0.45
+max_entropy = 0.5
+skip_nj = FALSE
+diploid_chroms = 
+ncores = 40
+ncores_nni = 10
+common_diploid = TRUE
+tau = 0.3
+check_converge = FALSE
+Input metrics:
+1465 cells
+Mem used: 11.7Gb
+Approximating initial clusters using smoothed expression ..
+Mem used: 11.7Gb
+number of genes left: 9237
+running hclust...
+Iteration 1
+Mem used: 11.8Gb
+number of genes left: 8144
+number of genes left: 9071
+number of genes left: 9113
+number of genes left: 8369
+number of genes left: 7955
+Running HMMs on 5 cell groups..
+Retesting CNVs..
+Retesting CNVs..
+Retesting CNVs..
+Retesting CNVs..
+Finishing..
+Finishing..
+Retesting CNVs..
+Finishing..
+Finishing..
+Finishing..
+number of genes left: 9113
+number of genes left: 8369
+number of genes left: 7955
+Running HMMs on 3 cell groups..
+Finishing..
+Finishing..
+Finishing..
+Making plots..
+Evaluating CNV per cell ..
+Mem used: 12.4Gb
+All cells succeeded
+Building phylogeny ..
+Mem used: 12.6Gb
+Using 12 CNVs to construct phylogeny
+Using UPGMA tree as seed..
+Mem used: 12.6Gb
+Iter 2 -4448.2181584008 9.9s
+Iter 3 -4374.12872650614 9.9s
+Iter 4 -4344.22810008179 9.8s
+Iter 5 -4294.77573262603 9.6s
+Iter 6 -4238.60364873902 10s
+Iter 7 -4217.69589784244 12s
+Iter 8 -4207.99950583214 12s
+Iter 9 -4199.44396969823 12s
+Iter 10 -4186.32134143811 12s
+Iter 11 -4178.54708677385 13s
+Iter 12 -4172.10300585369 12s
+Iter 13 -4168.31543719461 12s
+Iter 14 -4163.25528208531 12s
+Iter 15 -4160.25292239663 11s
+Iter 16 -4158.19829096541 11s
+Iter 17 -4157.87993735627 12s
+Iter 18 -4157.14213485712 12s
+Iter 19 -4157.14213485712 11s
+Found 988 normal cells..
+Iteration 2
+Mem used: 12.6Gb
+number of genes left: 8123
+number of genes left: 8131
+number of genes left: 9071
+Running HMMs on 3 cell groups..
+Retesting CNVs..
+Retesting CNVs..
+Retesting CNVs..
+Finishing..
+Finishing..
+Finishing..
+number of genes left: 9119
+number of genes left: 7898
+number of genes left: 8123
+Running HMMs on 3 cell groups..
+Finishing..
+Finishing..
+Finishing..
+Making plots..
+Evaluating CNV per cell ..
+Mem used: 12.6Gb
+All cells succeeded
+Building phylogeny ..
+Mem used: 12.6Gb
+Using 12 CNVs to construct phylogeny
+Using UPGMA tree as seed..
+Mem used: 12.6Gb
+Iter 2 -4684.84764610997 11s
+Iter 3 -4660.70415256691 11s
+Iter 4 -4616.92583610741 10s
+Iter 5 -4602.45559088797 10s
+Iter 6 -4593.72477107611 10s
+Iter 7 -4588.09305881618 10s
+Iter 8 -4583.21367508137 10s
+Iter 9 -4582.38978829933 10s
+Iter 10 -4575.3470270711 10s
+Iter 11 -4574.97151644515 10s
+Iter 12 -4574.67159881788 10s
+Iter 13 -4570.86450394981 10s
+Iter 14 -4570.71792199406 9.9s
+Iter 15 -4570.66151438301 9.9s
+Iter 16 -4570.44764043207 11s
+Iter 17 -4570.44764043207 13s
+Found 989 normal cells..
+All done!
+Running under parameters:
+t = 1e-05
+alpha = 1e-04
+gamma = 20
+min_cells = 50
+init_k = 3
+max_cost = 1266
+max_iter = 2
+max_nni = 100
+min_depth = 0
+use_loh = auto
+multi_allelic = FALSE
+min_LLR = 40
+min_overlap = 0.45
+max_entropy = 0.5
+skip_nj = FALSE
+diploid_chroms = 
+ncores = 40
+ncores_nni = 30
+common_diploid = TRUE
+tau = 0.3
+check_converge = FALSE
+Input metrics:
+4220 cells
+Mem used: 11.7Gb
+Approximating initial clusters using smoothed expression ..
+Mem used: 11.7Gb
+number of genes left: 9680
+running hclust...
+Iteration 1
+Mem used: 12.1Gb
+number of genes left: 9828
+number of genes left: 9567
+number of genes left: 8973
+number of genes left: 9201
+number of genes left: 9700
+Running HMMs on 5 cell groups..
+Retesting CNVs..
+Retesting CNVs..
+Finishing..
+Finishing..
+Retesting CNVs..
+Finishing..
+Retesting CNVs..
+Retesting CNVs..
+Finishing..
+Finishing..
+number of genes left: 9828
+number of genes left: 8973
+number of genes left: 9201
+Running HMMs on 3 cell groups..
+Finishing..
+Finishing..
+Finishing..
+Making plots..
+Evaluating CNV per cell ..
+Mem used: 13Gb
+All cells succeeded
+Building phylogeny ..
+Mem used: 13.8Gb
+Using 3 CNVs to construct phylogeny
+Using UPGMA tree as seed..
+Mem used: 13.8Gb
+Iter 2 -1847.38595740726 29s
+Iter 3 -1838.05652665938 31s
+Iter 4 -1838.05652665938 31s
+Found 2005 normal cells..
+Iteration 2
+Mem used: 13.9Gb
+number of genes left: 9112
+number of genes left: 9123
+number of genes left: 9700
+Running HMMs on 3 cell groups..
+Retesting CNVs..
+Retesting CNVs..
+Retesting CNVs..
+Finishing..
+Finishing..
+Finishing..
+number of genes left: 9562
+number of genes left: 9129
+number of genes left: 9123
+Running HMMs on 3 cell groups..
+Finishing..
+Finishing..
+Finishing..
+Making plots..
+Evaluating CNV per cell ..
+Mem used: 13.8Gb
+All cells succeeded
+Building phylogeny ..
+Mem used: 13.8Gb
+Using 3 CNVs to construct phylogeny
+Using UPGMA tree as seed..
+Mem used: 13.8Gb
+Iter 2 -1718.61680985074 33s
+Iter 3 -1718.61680985074 31s
+Found 2003 normal cells..
+All done!
+Running under parameters:
+t = 1e-05
+alpha = 1e-04
+gamma = 20
+min_cells = 50
+init_k = 3
+max_cost = 1049.7
+max_iter = 2
+max_nni = 100
+min_depth = 0
+use_loh = auto
+multi_allelic = FALSE
+min_LLR = 40
+min_overlap = 0.45
+max_entropy = 0.5
+skip_nj = FALSE
+diploid_chroms = 
+ncores = 40
+ncores_nni = 20
+common_diploid = TRUE
+tau = 0.3
+check_converge = FALSE
+Input metrics:
+3499 cells
+Mem used: 11.7Gb
+Approximating initial clusters using smoothed expression ..
+Mem used: 11.8Gb
+number of genes left: 9812
+running hclust...
+Iteration 1
+Mem used: 12Gb
+number of genes left: 9482
+number of genes left: 9017
+number of genes left: 9746
+number of genes left: 9558
+number of genes left: 8947
+Running HMMs on 5 cell groups..
+Retesting CNVs..
+Finishing..
+Retesting CNVs..
+Retesting CNVs..
+Finishing..
+Retesting CNVs..
+Finishing..
+Finishing..
+Retesting CNVs..
+Finishing..
+number of genes left: 9482
+number of genes left: 9017
+number of genes left: 8947
+Running HMMs on 3 cell groups..
+Finishing..
+Finishing..
+Finishing..
+Making plots..
+Evaluating CNV per cell ..
+Mem used: 12.7Gb
+All cells succeeded
+Building phylogeny ..
+Mem used: 13.3Gb
+Using 3 CNVs to construct phylogeny
+Using UPGMA tree as seed..
+Mem used: 13.4Gb
+Iter 2 -1363.7878301901 22s
+Found 3262 normal cells..
+Iteration 2
+Mem used: 13.4Gb
+number of genes left: 9115
+number of genes left: 9746
+Running HMMs on 2 cell groups..
+Retesting CNVs..
+Finishing..
+Retesting CNVs..
+Finishing..
+number of genes left: 9115
+number of genes left: 9688
+Running HMMs on 2 cell groups..
+Finishing..
+Finishing..
+Making plots..
+Evaluating CNV per cell ..
+Mem used: 13.1Gb
+All cells succeeded
+Building phylogeny ..
+Mem used: 13.1Gb
+Using 3 CNVs to construct phylogeny
+Using UPGMA tree as seed..
+Mem used: 13.1Gb
+Iter 2 -1227.96602075706 21s
+Iter 3 -1227.79198510809 21s
+Iter 4 -1225.16349523154 21s
+Iter 5 -1225.16349523154 20s
+Found 3268 normal cells..
+All done!
+Running under parameters:
+t = 1e-05
+alpha = 1e-04
+gamma = 20
+min_cells = 50
+init_k = 3
+max_cost = 923.4
+max_iter = 2
+max_nni = 100
+min_depth = 0
+use_loh = auto
+multi_allelic = FALSE
+min_LLR = 40
+min_overlap = 0.45
+max_entropy = 0.5
+skip_nj = FALSE
+diploid_chroms = 
+ncores = 40
+ncores_nni = 20
+common_diploid = TRUE
+tau = 0.3
+check_converge = FALSE
+Input metrics:
+3078 cells
+Mem used: 11.7Gb
+Approximating initial clusters using smoothed expression ..
+Mem used: 11.7Gb
+number of genes left: 9582
+running hclust...
+Iteration 1
+Mem used: 11.9Gb
+number of genes left: 9548
+number of genes left: 9471
+number of genes left: 9144
+number of genes left: 8661
+number of genes left: 9180
+Running HMMs on 5 cell groups..
+Retesting CNVs..
+Retesting CNVs..
+Finishing..
+Finishing..
+Retesting CNVs..
+Finishing..
+Retesting CNVs..
+Retesting CNVs..
+Finishing..
+Finishing..
+number of genes left: 9144
+number of genes left: 8661
+number of genes left: 9180
+Running HMMs on 3 cell groups..
+Finishing..
+Finishing..
+Finishing..
+Making plots..
+Evaluating CNV per cell ..
+Mem used: 12.5Gb
+All cells succeeded
+Building phylogeny ..
+Mem used: 13Gb
+Using 5 CNVs to construct phylogeny
+Using UPGMA tree as seed..
+Mem used: 13Gb
+Iter 2 -2143.97832167712 19s
+Iter 3 -1998.75428678473 19s
+Iter 4 -1990.78886188941 19s
+Iter 5 -1989.99345174829 19s
+Iter 6 -1989.22048582168 19s
+Iter 7 -1988.64858623685 19s
+Iter 8 -1988.64858623685 20s
+Found 2904 normal cells..
+Iteration 2
+Mem used: 13Gb
+number of genes left: 8696
+number of genes left: 9548
+Running HMMs on 2 cell groups..
+Retesting CNVs..
+Finishing..
+Retesting CNVs..
+Finishing..
+number of genes left: 8696
+number of genes left: 9460
+Running HMMs on 2 cell groups..
+Finishing..
+Finishing..
+Making plots..
+Evaluating CNV per cell ..
+Mem used: 12.8Gb
+All cells succeeded
+Building phylogeny ..
+Mem used: 12.8Gb
+Using 8 CNVs to construct phylogeny
+Using UPGMA tree as seed..
+Mem used: 12.9Gb
+Iter 2 -3734.961549091 20s
+Iter 3 -3713.87794727014 20s
+Iter 4 -3702.88833472696 20s
+Iter 5 -3699.62904632334 20s
+Iter 6 -3699.11144660205 19s
+Iter 7 -3698.16316564193 20s
+Iter 8 -3698.16316564193 20s
+Found 2882 normal cells..
+All done!
+Running under parameters:
+t = 1e-05
+alpha = 1e-04
+gamma = 20
+min_cells = 50
+init_k = 3
+max_cost = 1023.9
+max_iter = 2
+max_nni = 100
+min_depth = 0
+use_loh = auto
+multi_allelic = FALSE
+min_LLR = 40
+min_overlap = 0.45
+max_entropy = 0.5
+skip_nj = FALSE
+diploid_chroms = 
+ncores = 40
+ncores_nni = 20
+common_diploid = TRUE
+tau = 0.3
+check_converge = FALSE
+Input metrics:
+3413 cells
+Mem used: 11.7Gb
+Approximating initial clusters using smoothed expression ..
+Mem used: 11.7Gb
+number of genes left: 9642
+running hclust...
+Iteration 1
+Mem used: 12Gb
+number of genes left: 9612
+number of genes left: 9486
+number of genes left: 8760
+number of genes left: 9324
+number of genes left: 9038
+Running HMMs on 5 cell groups..
+Retesting CNVs..
+Retesting CNVs..
+Finishing..
+Retesting CNVs..
+Finishing..
+Retesting CNVs..
+Retesting CNVs..
+Finishing..
+Finishing..
+Finishing..
+number of genes left: 8760
+number of genes left: 9324
+number of genes left: 9038
+Running HMMs on 3 cell groups..
+Finishing..
+Finishing..
+Finishing..
+Making plots..
+Evaluating CNV per cell ..
+Mem used: 12.8Gb
+All cells succeeded
+Building phylogeny ..
+Mem used: 13.4Gb
+Using 8 CNVs to construct phylogeny
+Using NJ tree as seed..
+Mem used: 13.5Gb
+Iter 2 -5645.88904770492 22s
+Iter 3 -5622.79905315193 21s
+Iter 4 -5620.90967265834 21s
+Iter 5 -5619.17421424702 21s
+Iter 6 -5617.59267791799 21s
+Iter 7 -5613.22613018513 20s
+Iter 8 -5608.29969737082 21s
+Iter 9 -5606.84418147851 20s
+Iter 10 -5604.08707173886 20s
+Iter 11 -5602.77339258526 20s
+Iter 12 -5601.47179875657 20s
+Iter 13 -5600.17020492788 20s
+Iter 14 -5598.28082442558 20s
+Iter 15 -5593.81617696052 20s
+Iter 16 -5592.51458313184 21s
+Iter 17 -5587.3082078171 21s
+Iter 18 -5586.02304195357 22s
+Iter 19 -5584.91797169204 23s
+Iter 20 -5583.9242220279 22s
+Iter 21 -5582.06274311774 21s
+Iter 22 -5578.89967029807 21s
+Iter 23 -5576.47830630636 21s
+Iter 24 -5574.33688481502 21s
+Iter 25 -5573.58002496057 22s
+Iter 26 -5572.23866614701 20s
+Iter 27 -5571.90901583752 20s
+Iter 28 -5571.58533589283 20s
+Iter 29 -5571.28285634397 20s
+Iter 30 -5570.37804235256 21s
+Iter 31 -5570.09904927301 22s
+Iter 32 -5569.91001714345 21s
+Iter 33 -5569.718090226 22s
+Iter 34 -5569.718090226 21s
+Found 3146 normal cells..
+Iteration 2
+Mem used: 13.5Gb
+number of genes left: 8802
+number of genes left: 9612
+number of genes left: 9308
+Running HMMs on 3 cell groups..
+Retesting CNVs..
+Finishing..
+Retesting CNVs..
+Finishing..
+Retesting CNVs..
+Finishing..
+number of genes left: 8802
+number of genes left: 9308
+number of genes left: 9456
+Running HMMs on 3 cell groups..
+Finishing..
+Finishing..
+Finishing..
+Making plots..
+Evaluating CNV per cell ..
+Mem used: 13.3Gb
+All cells succeeded
+Building phylogeny ..
+Mem used: 13.3Gb
+Using 8 CNVs to construct phylogeny
+Using UPGMA tree as seed..
+Mem used: 13.3Gb
+Iter 2 -5003.80589018244 29s
+Iter 3 -4936.11510675349 27s
+Iter 4 -4878.16371222355 27s
+Iter 5 -4850.20533744763 26s
+Iter 6 -4829.82266178658 25s
+Iter 7 -4811.19215239375 25s
+Iter 8 -4783.07345020664 25s
+Iter 9 -4782.3596431204 26s
+Iter 10 -4781.77185645533 25s
+Iter 11 -4781.46401229413 27s
+Iter 12 -4781.46401229413 28s
+Found 3148 normal cells..
+All done!
+Warning message:
+The `x` argument of `as_tibble.matrix()` must have unique column names if `.name_repair` is omitted as of tibble 2.0.0.
+Using compatibility `.name_repair`.
+This warning is displayed once every 8 hours.
+Call `lifecycle::last_lifecycle_warnings()` to see where this warning was generated. 

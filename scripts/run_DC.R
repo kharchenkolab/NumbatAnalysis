@@ -9,9 +9,9 @@ library(vcfR)
 library(pagoda2)
 library(conos)
 library(IRdisplay)
-library(numbat)
 # home_dir = '/d0-bayes/home/tenggao'
 home_dir = '/home/tenggao'
+devtools::load_all(glue('{home_dir}/numbat'))
 
 # expression data
 con = readRDS(glue('{home_dir}/paper_data/conos_objects/conos_BC.rds'))
@@ -22,7 +22,7 @@ count_mat = c()
 df = c()
 
 for (sample in samples) {
-    count_mat[[sample]] = as.matrix(t(con$samples[[sample]]$misc$rawCounts))
+    count_mat[[sample]] = t(con$samples[[sample]]$misc$rawCounts)
     df[[sample]] = fread(glue('{home_dir}/paper_data/processed/{sample}_allele_counts.tsv.gz'), sep = '\t')
 }
 
@@ -31,17 +31,17 @@ for (sample in samples) {
     
     tryCatch(
         expr = {
-            out = numbat_subclone(
+            out = run_numbat(
                 count_mat[[sample]],
                 ref_hca,
                 df[[sample]],
-                gtf_transcript,
+                gtf_hg38,
                 genetic_map_hg38,
                 min_cells = 50,
                 t = 1e-3,
-                ncores = 45,
+                ncores = 30,
                 init_k = 3,
-                out_dir = glue('{home_dir}/results/MDA/{sample}')
+                out_dir = glue('{home_dir}/paper_data/numbat_out/{sample}_new')
             )
         },
         error = function(e) { 

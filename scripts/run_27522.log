@@ -1,0 +1,132 @@
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+
+Attaching package: ‘data.table’
+
+The following objects are masked from ‘package:dplyr’:
+
+    between, first, last
+
+ℹ Loading numbat
+Registered S3 method overwritten by 'vegan':
+  method     from      
+  rev.hclust dendextend
+Warning message:
+replacing previous import ‘Matrix::expand’ by ‘ggtree::expand’ when loading ‘numbat’ 
+cell_dict
+  B 
+578 
+Running under parameters:
+t = 1e-05
+alpha = 1e-04
+gamma = 20
+min_cells = 50
+init_k = 3
+max_cost = 745.2
+max_iter = 2
+max_nni = 100
+min_depth = 0
+use_loh = auto
+multi_allelic = FALSE
+min_LLR = 40
+min_overlap = 0.45
+max_entropy = 0.5
+skip_nj = FALSE
+diploid_chroms = 
+ncores = 45
+ncores_nni = 20
+common_diploid = TRUE
+Input metrics:
+2484 cells
+Mem used: 15.5Gb
+Approximating initial clusters using smoothed expression ..
+Mem used: 16.2Gb
+number of genes left: 9591
+running hclust...
+Iteration 1
+Mem used: 16.4Gb
+number of genes left: 9557
+number of genes left: 9236
+number of genes left: 9601
+number of genes left: 9526
+number of genes left: 9328
+Running HMMs on 5 cell groups..
+Retesting CNVs..
+Finishing..
+Retesting CNVs..
+Retesting CNVs..
+Retesting CNVs..
+Finishing..
+Retesting CNVs..
+Finishing..
+Finishing..
+Finishing..
+number of genes left: 9601
+number of genes left: 9236
+number of genes left: 9328
+Running HMMs on 3 cell groups..
+Finishing..
+Finishing..
+Finishing..
+Making plots..
+Evaluating CNV per cell ..
+Mem used: 17.3Gb
+All cells succeeded
+Building phylogeny ..
+Mem used: 17.8Gb
+Using 4 CNVs to construct phylogeny
+Using UPGMA tree as seed..
+Mem used: 17.8Gb
+Iter 2 -2504.74096199505 13s
+Found 305 normal cells..
+Iteration 2
+Mem used: 17.8Gb
+number of genes left: 9557
+number of genes left: 9053
+number of genes left: 9467
+number of genes left: 9372
+Running HMMs on 4 cell groups..
+Retesting CNVs..
+Finishing..
+Retesting CNVs..
+Retesting CNVs..
+Retesting CNVs..
+Finishing..
+Finishing..
+Finishing..
+number of genes left: 9571
+number of genes left: 9444
+number of genes left: 9053
+number of genes left: 9372
+Running HMMs on 4 cell groups..
+Finishing..
+Finishing..
+Finishing..
+Finishing..
+Making plots..
+Evaluating CNV per cell ..
+Mem used: 17.8Gb
+All cells succeeded
+Building phylogeny ..
+Mem used: 17.9Gb
+Using 4 CNVs to construct phylogeny
+Using UPGMA tree as seed..
+Mem used: 17.9Gb
+Iter 2 -2493.88535213186 15s
+Iter 3 -2493.88535213186 15s
+Found 302 normal cells..
+All done!
+Warning message:
+The `x` argument of `as_tibble.matrix()` must have unique column names if `.name_repair` is omitted as of tibble 2.0.0.
+Using compatibility `.name_repair`.
+This warning is displayed once every 8 hours.
+Call `lifecycle::last_lifecycle_warnings()` to see where this warning was generated. 
