@@ -6,38 +6,22 @@ library(glue)
 library(purrr)
 library(parallel)
 library(vcfR)
-library(pagoda2)
-library(conos)
-# home_dir = '/d0-bayes/home/tenggao'
-home_dir = '/home/tenggao'
+home_dir = '/d0-bayes/home/tenggao'
+# home_dir = '/home/tenggao'
 devtools::load_all(glue('{home_dir}/numbat'))
 
-# expression data
-con_TNBC = readRDS(glue('{home_dir}/paper_data/conos_objects/conos_TNBC.rds'))
-con_ATC = readRDS(glue('{home_dir}/paper_data/conos_objects/conos_ATC.rds'))
+# samples = c('ATC2_subsampled', 'ATC1', 'TNBC5', 'TNBC1', 'NCI-N87', 
+#     '47491_Primary', '27522_Relapse_2', '59114_Relapse_1', '37692_Primary', '58408_Primary')
 
-samples = c('ATC2', 'ATC1', 'TNBC5', 'TNBC1')
+samples = c('NCI-N87')
 
-count_mat = c()
-df = c()
-
-for (sample in samples) {
-    if (sample == 'ATC2') {
-        count_mat[[sample]] = count_mat_ATC2
-        df[[sample]] = df_allele_ATC2
-    } else {
-        if (str_detect(sample, 'ATC')) {
-            con = con_ATC
-        } else {
-            con = con_TNBC
-        }
-        count_mat[[sample]] = t(con$samples[[sample]]$misc$rawCounts)
-        df[[sample]] = fread(glue('{home_dir}/paper_data/processed/{sample}_allele_counts.tsv.gz'), sep = '\t')
-    }
-}
+ncores = 10
 
 ## Run Numbat
 for (sample in samples) {
+
+    count_mat = readRDS(glue('{home_dir}/paper_data/processed/{sample}_counts.rds'))
+    df = fread(glue('{home_dir}/paper_data/processed/{sample}_allele_counts.tsv.gz'), sep = '\t')
 
     if (sample == 'TNBC1') {
         use_loh = TRUE 
@@ -47,25 +31,47 @@ for (sample in samples) {
         diploid_chroms = NULL
     }
 
+    if (str_detect(sample, 'TNBC|ATC|NCI')) {
+        ref_types = colnames(ref_hca)
+    } else {
+        ref_types = c('NK', 'Macrophage', 'CD4+T', 'CD8+T', 'Myeloid', 'Monocyte', 'B', 'Plasma', 'Dendritic')
+    }
+
+    if (str_detect(sample, 'NCI')) {
+        segs_loh = fread(glue('{home_dir}/paper_data/numbat_out/NCI-N87_new/segs_loh.tsv')) %>% relevel_chrom()
+    } else {
+        segs_loh = NULL
+    }
+
+    n_cells = ncol(count_mat)
+
+    ncores_nni = case_when(
+        n_cells < 1000 ~ 6,
+        n_cells < 2000 ~ 10,
+        n_cells < 4000 ~ 20,
+        TRUE ~ 30
+    )
+
     for (min_overlap in c(0.15, 0.3, 0.45, 0.6, 0.75)) {
 
         tryCatch(
             expr = {
                 out = run_numbat(
-                    count_mat[[sample]],
-                    ref_hca,
-                    df[[sample]],
+                    count_mat,
+                    ref_hca[,ref_types],
+                    df,
                     gtf_hg38,
                     genetic_map_hg38,
                     min_cells = 50,
-                    ncores = 40,
-                    ncores_nni = 15,
-                    t = 1e-3,
+                    ncores = ncores,
+                    ncores_nni = min(ncores_nni, ncores),
+                    t = 1e-5,
                     multi_allelic = TRUE,
                     min_overlap = min_overlap,
                     use_loh = use_loh,
+                    segs_loh = segs_loh,
                     diploid_chroms = diploid_chroms,
-                    out_dir = glue('{home_dir}/paper_data/numbat_out/{sample}_overlap_{min_overlap}')
+                    out_dir = glue('{home_dir}/paper_data/numbat_out/{sample}_test_overlap_{min_overlap}')
                 )
             },
             error = function(e) { 
