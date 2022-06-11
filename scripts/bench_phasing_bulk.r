@@ -177,20 +177,6 @@ run_bench = function(df, cell_annot, segs_dna, sample, n_cells, ratios, ls, seed
     ### Scoring segments ### 
     message('Scoring segments .. ')
 
-    # naive HMM allelic imbalance MLE
-    theta_mle_naive = function(MAD, DP, lower = 0.0001, upper = 0.4999, start = 0.25, gamma = 20) {
-
-        fit = optim(
-            start, 
-            function(theta) {-l_bbinom(MAD, DP, gamma*(0.5+theta), gamma*(0.5-theta))},
-            method = 'L-BFGS-B',
-            lower = lower,
-            upper = upper
-        )
-        
-        return(tibble('theta_mle' = fit$par))
-    }
-
     theta_neu = segs_mixture %>%
         filter(ratio == 0 & id_random == 1) %>%
         group_by(n_cells) %>%

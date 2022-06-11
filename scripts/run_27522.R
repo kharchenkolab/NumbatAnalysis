@@ -7,8 +7,8 @@ library(Matrix)
 library(magrittr)
 library(parallel)
 
-home_dir = '/d0-bayes/home/tenggao'
-# home_dir = '/home/tenggao'
+# home_dir = '/d0-bayes/home/tenggao'
+home_dir = '/home/tenggao'
 devtools::load_all(glue('{home_dir}/numbat'))
 
 cell_annot = fread(glue('{home_dir}/paper_data/cell_annotations/cell_annot_WASHU_march.tsv'), sep = '\t') %>%
@@ -52,7 +52,8 @@ out = run_numbat(
     df[samples] %>% bind_rows %>% filter(cell %in% tumor_cells),
     gtf_hg38,
     genetic_map_hg38,
-    min_cells = 50,
+    # min_cells = 50,
+    min_cells = 0,
     t = 1e-5,
     ncores = 30,
     ncores_nni = 20,

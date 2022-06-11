@@ -11,7 +11,8 @@ home_dir = '/home/tenggao'
 devtools::load_all(glue('{home_dir}/numbat'))
 
 # samples = c('ATC2_subsampled', 'ATC1', 'TNBC5', 'TNBC1', 'NCI-N87')
-samples = c('NCI-N87')
+# '47491_Primary'
+samples = c('27522_Relapse_2', '59114_Relapse_1', '37692_Primary', '58408_Primary', 'NCI-N87')
 
 ## Run Numbat
 for (sample in samples) {
@@ -27,7 +28,7 @@ for (sample in samples) {
         diploid_chroms = NULL
     }
 
-    if (str_detect(sample, 'TNBC|ATC')) {
+    if (str_detect(sample, 'TNBC|ATC|NCI')) {
         ref_types = colnames(ref_hca)
     } else {
         ref_types = c('NK', 'Macrophage', 'CD4+T', 'CD8+T', 'Myeloid', 'Monocyte', 'B', 'Plasma', 'Dendritic')
@@ -48,7 +49,7 @@ for (sample in samples) {
         TRUE ~ 30
     )
 
-    for (seed in 1:5) {
+    for (seed in 1) {
         tryCatch(
             expr = {
                 set.seed(seed)
@@ -59,7 +60,7 @@ for (sample in samples) {
                     gtf_hg38,
                     genetic_map_hg38,
                     min_cells = 50,
-                    ncores = 30,
+                    ncores = 40,
                     ncores_nni = ncores_nni,
                     init_k = 3,
                     t = 1e-5,
