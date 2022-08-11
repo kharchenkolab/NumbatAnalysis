@@ -20,7 +20,6 @@ hb = mclapply(
         readRDS(glue('~/paper_data/honeybadger_out/hb_{sample}.rds'))
     }
 ) %>% setNames(samples)
-    
 
 print('Running HB')
 for (sample in samples) {
