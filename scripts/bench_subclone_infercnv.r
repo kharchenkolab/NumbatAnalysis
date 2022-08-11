@@ -28,6 +28,8 @@ load('~/numbat/data/ref_hca_counts.rda')
 
 ref_types = c('NK', 'Macrophage', 'CD4+T', 'CD8+T', 'Myeloid', 'Monocyte', 'B', 'Plasma', 'Dendritic')
 
+# averaging the expression profile so that inferCNV outputs consensus CNV calls for the cell mixture
+# this is because inferCNV HMM outputs one set of CNV calls for each observation group (i.e. cell type)
 ref_counts = rowSums(ref_hca_counts) %>% 
     as.matrix %>%
     magrittr::set_colnames('Plasma')

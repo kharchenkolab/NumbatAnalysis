@@ -52,12 +52,10 @@ out = run_numbat(
     df[samples] %>% bind_rows %>% filter(cell %in% tumor_cells),
     gtf_hg38,
     genetic_map_hg38,
-    # min_cells = 50,
-    min_cells = 0,
+    min_cells = 50,
     t = 1e-5,
     ncores = 30,
-    ncores_nni = 20,
     max_entropy = 0.5,
     multi_allelic = TRUE,
-    out_dir = glue('{home_dir}/paper_data/numbat_out/{patient}_test')
+    out_dir = glue('{home_dir}/paper_data/numbat_out/{patient}')
 )

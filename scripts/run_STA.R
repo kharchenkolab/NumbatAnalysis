@@ -1,7 +1,10 @@
 library(Matrix)
 library(glue)
-home_dir = '/d0-bayes/home/tenggao'
-# home_dir = '{home_dir}'
+library(dplyr)
+library(data.table)
+# home_dir = '/d0-bayes/home/tenggao'
+home_dir = '/home/tenggao'
+# library(numbat)
 devtools::load_all(glue('{home_dir}/numbat'))
 
 sample = 'NCI-N87'
@@ -19,9 +22,9 @@ bulk = get_bulk(
     genetic_map_hg38
 )
 
-segs_loh = bulk %>% detect_loh(t = 1e-4)
+segs_loh = bulk %>% detect_clonal_loh(t = 1e-4)
 
-segs_loh %>% fwrite(glue('{home_dir}/paper_data/numbat_out/{sample}_new/segs_loh.tsv'), sep = '\t')
+segs_loh %>% fwrite(glue('{home_dir}/paper_data/numbat_out/{sample}/segs_loh.tsv'), sep = '\t')
 
 out = run_numbat(
         count_mat,
@@ -30,10 +33,9 @@ out = run_numbat(
         gtf_hg38,
         genetic_map_hg38,
         t = 1e-5,
-        ncores = 20,
+        ncores = 35,
         min_cells = 50,
-        ncores_nni = 20,
         multi_allelic = TRUE,
         segs_loh = segs_loh,
-        out_dir = glue('{home_dir}/paper_data/numbat_out/{sample}_new')
+        out_dir = glue('{home_dir}/paper_data/numbat_out/{sample}')
     )
