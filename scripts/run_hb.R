@@ -11,8 +11,7 @@ txdb <- TxDb.Hsapiens.UCSC.hg19.knownGene
 
 ncores = 40
 
-# samples = c('37692_Primary', '47491_Primary', '27522_Relapse_2', '59114_Relapse_1', '58408_Primary')
-samples = c('59114_Relapse_1')
+samples = c('37692_Primary', '47491_Primary', '27522_Relapse_2', '59114_Relapse_1', '58408_Primary')
 
 hb = mclapply(
     mc.cores = length(samples),
@@ -37,8 +36,7 @@ for (sample in samples) {
 
     res_all = data.frame()
     
-    # for (i in 1:nrow(segs_consensus)) {
-    for(i in 2) {
+    for (i in 1:nrow(segs_consensus)) {
 
         seg = segs_consensus[i,]
 
@@ -93,8 +91,6 @@ for (sample in samples) {
         res_all = bind_rows(res_all, res)
     }
 
-    # fwrite(res_all, glue('~/paper_data/honeybadger_out/{sample}_hb_sc.tsv'), sep = '\t')
-
-    fwrite(res_all, glue('~/test_hb_sc.tsv'), sep = '\t')
+    fwrite(res_all, glue('~/paper_data/honeybadger_out/{sample}_hb_sc.tsv'), sep = '\t')
 
 }
